@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils_3d/control_utils_3d.js" -->
+    <!-- crossorigin="anonymous"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js" crossorigin="anonymous"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"></script> -->
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <script src="./opencv/opencv.js"></script>
+</head>
+
+
+<body>
+  <div id="media">
+    <video id="input_video" width="1280" height="720" crossorigin="anonymous" playsinline="true" src="/videos/sample-2.mp4" loop="" autoplay="true" muted="muted"></video>
+    <canvas id="output_canvas" width="1280" height="720"></canvas>
+  </div>
+
+  <div id="opencv">
+    <canvas id="canvasOutput" width="1280" height="720"></canvas>
+  </div>
+
+  <div id='konva'>
+  </div>
+
+  <div id="video-command">
+    <div class="slidecontainer">
+      <input id="video-slider" type="range" min="0" max="100" step="0.1" value="0" class="slider">
+    </div>
+    <button id="video-button" class="btn btn-dark mx-2">Play/Pause</button>
+  </div>
+
+  <div id="toolbar" class="d-flex justify-content-between my-2">
+
+    <div id='left_buttons' class=" d-flex flex-row justify-content-between">
+      <button id="select_button" class="btn btn-dark mx-2">
+        Select
+      </button>
+    </div>
+
+    <div class="d-flex flex-row justify-content-between">
+      <button id="draw_button" class="btn btn-dark mx-2">
+        Draw
+      </button>
+
+      <button id="frame_button" class="btn btn-dark mx-2">
+        Frame
+      </button>
+
+      <button id="undo_button" class="btn btn-dark mx-2">
+        Undo
+      </button>
+
+      <div class="d-flex mx-3">
+        <!-- <label for="exampleColorInput" class="form-label">Color picker</label> -->
+        <input type="color" class="form-control form-control-color" id="color-picker" value="#FFFFFF"
+          title="Choose your color">
+      </div>
+
+      <div class="d-flex mx-3">
+        <!-- <label for="customRange1" class="form-label">Thickness</label> -->
+        <input type="range" class="form-range mt-2 mr-3" id="thickness">
+      </div>
+    </div>
+
+    <div id="right_buttons" class="d-flex flex-row justify-content-between">
+      <button id="save_button" class="btn btn-dark mx-2">
+        Save
+      </button>
+
+      <button id="emit_button" class="btn btn-dark mx-2">
+        Emit
+      </button>
+
+      <div class="dropdown">
+        <button id="motion_dropdown" class="btn btn-dark mx-2 dropdown-toggle" type="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Motion
+        </button>
+        <ul id="motion_button" class="dropdown-menu">
+          <li class="dropdown-item">Trailing</li>
+        </ul>
+      </div>
+
+      <div class="dropdown">
+        <button class="btn btn-dark mx-2 dropdown-toggle" type="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Contour
+        </button>
+        <ul id="contour_button" class="dropdown-menu">
+          <li class="dropdown-item">Line Around</li>
+          <li class="dropdown-item">Full Body</li>
+          <li class="dropdown-item">Bottom Up</li>
+        </ul>
+      </div>
+
+      <div class="dropdown">
+        <button id="action_dropdown" class="btn btn-dark  mx-2 dropdown-toggle" type="button" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Action
+        </button>
+        <ul id="action_button" class="dropdown-menu">
+          <li class="dropdown-item">Wave</li>
+          <li class="dropdown-item">Stomp</li>
+          <li class="dropdown-item">Fist Pump</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+    integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+    crossorigin="anonymous"></script>
+
+  <script src="./bundle.js"></script>
+</body>
+
+</html>
