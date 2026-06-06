@@ -1,7 +1,5 @@
+本実装は、[https://github.com/ucalgary-ilab/realitycanvas.git](url)の改善実装になります。
 # RealityCanvas
-
-coming soon.
-
 ```
 @inproceedings{xia2023realitycanvas,
   title={RealityCanvas: Augmented Reality Sketching for Embedded and Responsive Scribble Animation Effects},
